@@ -46,7 +46,7 @@
                 <Button Grid.Column="4" Grid.Row="0" x:Name="Button17" Width="Auto" Height="Auto" Content="SQRT" FontSize="25" Click="SqrtClick"/>
                 <Button Grid.Column="4" Grid.Row="1" x:Name="Button18" Width="Auto" Height="Auto" Content="/" FontSize="25" Click="OperatorClick"/>
                 <Button Grid.Column="4" Grid.Row="2" x:Name="Button19" Width="Auto" Height="Auto" Content="-" FontSize="25" Click="OperatorClick"/>
-                <Button Grid.Column="4" Grid.Row="3" x:Name="Button20" Width="Auto" Height="Auto" Content="=" FontSize="25"/>
+                <Button Grid.Column="4" Grid.Row="3" x:Name="Button20" Width="Auto" Height="Auto" Content="=" FontSize="25" Click="Execute"/>
 
 
 

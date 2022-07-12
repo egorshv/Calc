@@ -20,7 +20,8 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int num1;
+        private string num1;
+        private string num2;
         private string operation = "";
         public MainWindow()
         {
@@ -35,42 +36,20 @@ namespace WpfApp1
         private void NumClick(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            int num = Convert.ToInt32(btn.Content.ToString());
+            string num = btn.Content.ToString();
             // MessageBox.Show(num.ToString());
-            if (operation.Length > 0)
+            if (operation.Length == 0)
             {
-                string res = num.ToString();
-                switch (operation)
-                {
-                    case "+":
-                        res = (num1 + num).ToString();
-                        break;
-                    case "-":
-                        res = (num1 - num).ToString();
-                        break;
-                    case "/":
-                        if (num != 0)
-                        {
-                            res = (num1 / num).ToString();
-                        }
-                        else
-                        {
-                            res = "Division by zero error";
-                        }
-                        break;
-                    case "x":
-                        res = (num1 * num).ToString();
-                        break;
-                }
-                operation = "";
-                textblock.Text = res;
+                num1 += num;
+                textblock.Text = num1;
             }
             else
             {
-                num1 = num;
-                textblock.Text = num.ToString();
+                num2 += num;
+                textblock.Text = num2;
             }
-           
+                
+
         }
         private void OperatorClick(object sender, RoutedEventArgs e)
         {
@@ -80,12 +59,48 @@ namespace WpfApp1
         private void Delete(object sender, RoutedEventArgs e)
         {
             textblock.Text = "";
-            num1 = 0;
+            num1 = "";
+            num2 = "";
             operation = "";
+        }
+        private void Execute(object sender, RoutedEventArgs e)
+        {
+            string res = "";
+            int n1 = Convert.ToInt32(num1);
+            int n2 = Convert.ToInt32(num2);
+            switch (operation)
+            {
+                case "+":
+                    res = (n1 + n2).ToString();
+                    break;
+                case "-":
+                    res = (n1 - n2).ToString();
+                    break;
+                case "/":
+                    if (n2 != 0)
+                    {
+                        res = (n1 / n2).ToString();
+                    }
+                    else
+                    {
+                        res = "Division by zero error";
+                    }
+                    break;
+                case "x":
+                    res = (n1 * n2).ToString();
+                    break;
+            }
+            operation = "";
+            textblock.Text = res;
+            num1 = res;
+            num2 = "";
         }
         private void SqrtClick(object sender, RoutedEventArgs e)
         {
-            textblock.Text = Math.Sqrt(num1).ToString();
+            textblock.Text = Math.Sqrt(Convert.ToInt32(num1)).ToString();
+            num1 = textblock.Text;
+            num2 = "";
+            operation = "";
         }
     }
 }
