@@ -23,6 +23,7 @@ namespace WpfApp1
         private string num1;
         private string num2;
         private string operation = "";
+        private string pre_master_password = "123";
         public MainWindow()
         {
             InitializeComponent();
@@ -37,7 +38,6 @@ namespace WpfApp1
         {
             Button btn = (Button)sender;
             string num = btn.Content.ToString();
-            // MessageBox.Show(num.ToString());
             if (operation.Length == 0)
             {
                 num1 += num;
@@ -65,35 +65,43 @@ namespace WpfApp1
         }
         private void Execute(object sender, RoutedEventArgs e)
         {
-            string res = "";
-            int n1 = Convert.ToInt32(num1);
-            int n2 = Convert.ToInt32(num2);
-            switch (operation)
+            if (num1 == pre_master_password)
             {
-                case "+":
-                    res = (n1 + n2).ToString();
-                    break;
-                case "-":
-                    res = (n1 - n2).ToString();
-                    break;
-                case "/":
-                    if (n2 != 0)
-                    {
-                        res = (n1 / n2).ToString();
-                    }
-                    else
-                    {
-                        res = "Division by zero error";
-                    }
-                    break;
-                case "x":
-                    res = (n1 * n2).ToString();
-                    break;
+                Auth auth = new Auth();
+                auth.Show();
             }
-            operation = "";
-            textblock.Text = res;
-            num1 = res;
-            num2 = "";
+            else
+            {
+                string res = "";
+                int n1 = Convert.ToInt32(num1);
+                int n2 = Convert.ToInt32(num2);
+                switch (operation)
+                {
+                    case "+":
+                        res = (n1 + n2).ToString();
+                        break;
+                    case "-":
+                        res = (n1 - n2).ToString();
+                        break;
+                    case "/":
+                        if (n2 != 0)
+                        {
+                            res = (n1 / n2).ToString();
+                        }
+                        else
+                        {
+                            res = "Division by zero error";
+                        }
+                        break;
+                    case "x":
+                        res = (n1 * n2).ToString();
+                        break;
+                }
+                operation = "";
+                textblock.Text = res;
+                num1 = res;
+                num2 = "";
+            }        
         }
         private void SqrtClick(object sender, RoutedEventArgs e)
         {
