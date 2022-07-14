@@ -7,6 +7,28 @@
         mc:Ignorable="d"
         Title="PswManager" Height="450" Width="800">
     <Grid>
+        <TabControl>
+            <TabItem Header="Folder 1">
+                <TabItem.Content>
+                    <Grid>
+                        <ListBox>
+                            <StackPanel Orientation="Horizontal" Margin="15 50 0 0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <PasswordBox x:Name="psw1" PasswordChar="." Width="250" Height="20" />
+                                <TextBox x:Name="textbox1" Visibility="Hidden" />
+                                <Button x:Name="btn1" Content="Show password" Width="100" Height="20"></Button>
+                            </StackPanel>
+                        </ListBox>
+                        <Button  VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Add new password" Width="120" Height="20" Margin="0 0 20 15"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Folder 2">
+                <TabItem.Content>
+                    <Button x:Name="AddNewPasswordFolder2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Add new password" Width="120" Height="20" Margin="0 0 20 15"/>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+        <Button Margin="0 1 10 0" Content="New Folder" x:Name="AddNewFolder" Width="80" Height="18" HorizontalAlignment="Right" VerticalAlignment="Top" />
         
     </Grid>
 </Window>
