@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace WpfApp1
 {
@@ -22,6 +23,10 @@ namespace WpfApp1
         public PswManager()
         {
             InitializeComponent();
+
+            string connectionString = "SERVER=localhost;DATABASE=passwords;UID=root;PASSWORD=;";
+
+            
         }
         private void AddNewPassword(object sender, RoutedEventArgs e)
         {

@@ -36,6 +36,6 @@
             </TabItem>
         </TabControl>
         <Button Margin="0 1 10 0" Content="New Folder" x:Name="AddNewFolder" Width="80" Height="18" HorizontalAlignment="Right" VerticalAlignment="Top" />
-        
+
     </Grid>
 </Window>
