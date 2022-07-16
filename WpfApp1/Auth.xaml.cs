@@ -32,6 +32,10 @@ namespace WpfApp1
                 PswManager pswManager = new PswManager();
                 pswManager.Show();
             }
+            else
+            {
+                MessageBox.Show("Wrong password");
+            }
         }
         private void CloseWindow(object sender, RoutedEventArgs e)
         {

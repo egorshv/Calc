@@ -23,5 +23,9 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+        private void AddNewPassword(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
